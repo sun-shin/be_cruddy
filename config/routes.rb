@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :api do
-    get "/actor_path" => "photos#index"
+    get "/all_actors_path" => "actors#all_actors_action"
+    get "/single_actor_path" => "actors#single_actor_action"
   end
 end
