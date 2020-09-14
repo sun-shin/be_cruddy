@@ -15,4 +15,19 @@ class Api::ActorsController < ApplicationController
     render "single_actor.json.jb"
   end
 
+  def query_action
+    @actor = params[:actor]
+    render "params.json.jb"
+  end
+
+  def urlseg_action
+    @actor = params[:actor]
+    render "params.json.jb"
+  end
+
+  def body_action
+    @actor = params[:actor]
+    render "params.json.jb"
+  end
+
 end
