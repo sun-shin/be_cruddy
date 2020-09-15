@@ -1,33 +1,41 @@
 class Api::ActorsController < ApplicationController
   
-  def all_actors_action
+  def index
     @actors = Actor.all
-    render "all_actors.json.jb"
+    render "index.json.jb"
   end
 
-  def single_actor_action
-    @actor = Actor.first
-    render "single_actor.json.jb"
+  def show
+    @actor = Actor.find(params[:id])
+    render "show.json.jb"
   end
 
-  def actor_by_id_action
-    @actor = Actor.find_by(id: 4)
-    render "single_actor.json.jb"
+  def create
+    @actor = Actor.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      known_for: params[:known_for]
+    )
+    @actor.save
+    render "show.json.jb"
   end
 
-  def query_action
-    @actor = params[:actor]
-    render "params.json.jb"
+  def update
+    @actor = Actor.find(params[:id])
+    
+    @actor.first_name = params[:first_name] || @actor.first_name
+    @actor.last_name = params[:last_name] || @actor.last_name
+    @actor.known_for = params[:known_for] || @actor.known_for
+    
+    @actor.save
+    render "show.json.jb"
   end
 
-  def urlseg_action
-    @actor = params[:actor]
-    render "params.json.jb"
+  def destroy
+    actor = Actor.find(params[:id])
+    actor.destroy
+    render json: {message:"Actor was destroyed"} 
   end
 
-  def body_action
-    @actor = params[:actor]
-    render "params.json.jb"
-  end
 
 end
