@@ -11,11 +11,11 @@
 #   {name: "action"}
 # ])
 
-# MovieGenre.create!([
-#   {genre_id: 1, movie_id: 1},
-#   {genre_id: 2, movie_id: 2},
-#   {genre_id: 3, movie_id: 3},
-#   {genre_id: 3, movie_id: 4},
-#   {genre_id: 3, movie_id: 5},
-#   {genre_id: 2, movie_id: 6}
-# ])
+Movie.update(
+  {id: 1, director: "Todd Philips"}
+  # {movie_id: 2, director: "Joe Pytka"}
+  # {movie_id: 3, director: "The Wachowskis"}
+  # {movie_id: 4, director: "David Fincher"}
+  # {movie_id: 5, director: "Jon Favreau"}
+  # {movie_id: 6, director: "Todd Philips"}
+)
